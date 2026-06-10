@@ -219,10 +219,12 @@ def run_simulation(fruit_key, T_c, E_ppm, RH_pct, days, dureza_0_user, brix_0_us
     )
 
     y = (brix_0 - brix_min) / (brix_max - brix_min)
-    t0_from_b0 = -(1.0 / g) * np.log((1.0 / y) - 1.0)
+    t0_from_b0 = (1.0 / g) * np.log((1.0 / y) - 1.0)
 
     t0_eff = t0_from_b0 + t0_base
     brix = brix_min + (brix_max - brix_min) / (1.0 + np.exp(-g * (t - t0_eff)))
+    if len(brix) > 0:
+        brix[0] = brix_0
 
     firm_score = 1.0 / (1.0 + np.exp(-0.35 * (dureza - p["qual_firm_threshold"])))
     brix_score = np.exp(-((brix - p["qual_brix_target"]) ** 2) / 2.0)
@@ -242,6 +244,10 @@ def run_simulation(fruit_key, T_c, E_ppm, RH_pct, days, dureza_0_user, brix_0_us
 
 def main():
     st.set_page_config(page_title="Simulador de Frutas", layout="wide")
+
+    if "fruit_key" not in st.session_state:
+        st.session_state.fruit_key = "kiwi_hayward"
+        st.session_state.last_loaded_fruit = None
 
     logo_dir = Path(__file__).resolve().parent / "logos"
     main_logo = logo_dir / "RETAILL_LC.jpg"
@@ -281,27 +287,41 @@ def main():
             "Fruta",
             options=list(PRESETS.keys()),
             format_func=lambda key: PRESETS[key]["label"],
-            index=0,
+            key="fruit_key",
         )
+
         p = PRESETS[fruit_key]
+
+        if st.session_state.get("last_loaded_fruit") != fruit_key:
+            st.session_state.last_loaded_fruit = fruit_key
+            st.session_state.dureza_0_input = float(p["dureza_0_default"])
+            st.session_state.brix_0_input = float(p["brix_0_default"])
 
         T_c = st.slider("Temperatura (°C)", 0.0, 25.0, 10.0, 0.5)
         E_ppm = st.slider("Etileno (ppm)", 0.0, 10.0, 0.2, 0.1)
         RH_pct = st.slider("Humidade (%)", 40, 100, 90, 1)
         days = st.slider("Dias", 5, 180, 40, 5)
 
+        default_dureza = float(p["dureza_0_default"])
+        default_brix = float(p["brix_0_default"])
+
         dureza_0 = st.number_input(
             "Dureza no dia 0",
             min_value=0.0,
-            value=float(p["dureza_0_default"]),
+            value=st.session_state.get("dureza_0_input", default_dureza),
             step=0.1,
+            key="dureza_0_input",
         )
         brix_0 = st.number_input(
             "°Brix no dia 0",
             min_value=0.0,
-            value=float(p["brix_0_default"]),
+            value=st.session_state.get("brix_0_input", default_brix),
             step=0.1,
+            key="brix_0_input",
         )
+
+        st.session_state.dureza_0_input = float(dureza_0)
+        st.session_state.brix_0_input = float(brix_0)
 
         st.markdown("---")
         st.write("Preset atual:", p["label"])

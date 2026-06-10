@@ -29,8 +29,9 @@ Esta aplicação Streamlit simula a evolução da firmeza e do teor de °Brix de
 - logos/ — imagens dos logos usados na interface
 
 ## Comportamento esperado
-- Ao alterar a fruta, os valores por defeito associados à fruta devem ser carregados.
+- Ao alterar a fruta, os valores por defeito associados à fruta devem ser carregados automaticamente no menu lateral.
 - O utilizador pode depois ajustar manualmente esses valores antes de correr a simulação.
+- Os valores de dureza inicial e °Brix inicial usados na simulação devem corresponder aos valores visíveis no menu no momento da execução.
 - O modelo deve usar o valor de °Brix inicial informado pelo utilizador na simulação e nos gráficos.
 
 ## Publicação
