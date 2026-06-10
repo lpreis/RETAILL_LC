@@ -245,10 +245,6 @@ def run_simulation(fruit_key, T_c, E_ppm, RH_pct, days, dureza_0_user, brix_0_us
 def main():
     st.set_page_config(page_title="Simulador de Frutas", layout="wide")
 
-    if "fruit_key" not in st.session_state:
-        st.session_state.fruit_key = "kiwi_hayward"
-        st.session_state.last_loaded_fruit = None
-
     logo_dir = Path(__file__).resolve().parent / "logos"
     main_logo = logo_dir / "RETAILL_LC.jpg"
     other_logos = [
@@ -292,11 +288,6 @@ def main():
 
         p = PRESETS[fruit_key]
 
-        if st.session_state.get("last_loaded_fruit") != fruit_key:
-            st.session_state.last_loaded_fruit = fruit_key
-            st.session_state.dureza_0_input = float(p["dureza_0_default"])
-            st.session_state.brix_0_input = float(p["brix_0_default"])
-
         T_c = st.slider("Temperatura (°C)", 0.0, 25.0, 10.0, 0.5)
         E_ppm = st.slider("Etileno (ppm)", 0.0, 10.0, 0.2, 0.1)
         RH_pct = st.slider("Humidade (%)", 40, 100, 90, 1)
@@ -308,20 +299,17 @@ def main():
         dureza_0 = st.number_input(
             "Dureza no dia 0",
             min_value=0.0,
-            value=st.session_state.get("dureza_0_input", default_dureza),
+            value=default_dureza,
             step=0.1,
-            key="dureza_0_input",
+            key=f"dureza_0_{fruit_key}",
         )
         brix_0 = st.number_input(
             "°Brix no dia 0",
             min_value=0.0,
-            value=st.session_state.get("brix_0_input", default_brix),
+            value=default_brix,
             step=0.1,
-            key="brix_0_input",
+            key=f"brix_0_{fruit_key}",
         )
-
-        st.session_state.dureza_0_input = float(dureza_0)
-        st.session_state.brix_0_input = float(brix_0)
 
         st.markdown("---")
         st.write("Preset atual:", p["label"])
