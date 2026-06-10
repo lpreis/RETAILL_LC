@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import numpy as np
 import matplotlib.pyplot as plt
 import streamlit as st
@@ -240,8 +242,38 @@ def run_simulation(fruit_key, T_c, E_ppm, RH_pct, days, dureza_0_user, brix_0_us
 
 def main():
     st.set_page_config(page_title="Simulador de Frutas", layout="wide")
+
+    logo_dir = Path(__file__).resolve().parent / "logos"
+    main_logo = logo_dir / "RETAILL_LC.jpg"
+    other_logos = [
+        logo_dir / "b0_Eureka_logo.png",
+        logo_dir / "b1_feup_logo.jpg",
+        logo_dir / "b2_liacc_logo.png",
+        logo_dir / "b3_PPorto_logo.png",
+        logo_dir / "b4_retail-logo.svg",
+        logo_dir / "b5_logo_ITEA4.svg",
+    ]
+
+    top_right = st.columns([3.2], vertical_alignment="top")[0]
+
+    with top_right:
+        logo_cols = st.columns(len(other_logos))
+        for col, logo_path in zip(logo_cols, other_logos):
+            with col:
+                if logo_path.exists():
+                    st.image(str(logo_path), use_container_width=True)
+                else:
+                    st.caption(logo_path.name)
+
+    st.markdown("---")
+
+    with st.sidebar:
+        if main_logo.exists():
+            st.image(str(main_logo), width=120)
+        else:
+            st.info("Logo principal não encontrado.")
+
     st.title("Simulador de qualidade e firmeza de frutas")
-    st.caption("Versão Streamlit do modelo apresentado em notebook, com presets e simulação interativa.")
 
     with st.sidebar:
         st.header("Parâmetros")
@@ -255,7 +287,7 @@ def main():
 
         T_c = st.slider("Temperatura (°C)", 0.0, 25.0, 10.0, 0.5)
         E_ppm = st.slider("Etileno (ppm)", 0.0, 10.0, 0.2, 0.1)
-        RH_pct = st.slider("Umidade relativa (%)", 40, 100, 90, 1)
+        RH_pct = st.slider("Humidade (%)", 40, 100, 90, 1)
         days = st.slider("Dias", 5, 180, 40, 5)
 
         dureza_0 = st.number_input(
