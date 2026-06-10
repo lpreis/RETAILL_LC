@@ -1,0 +1,37 @@
+# Open Specs — Simulador de Frutas
+
+## Objetivo
+Esta aplicação Streamlit simula a evolução da firmeza e do teor de °Brix de diferentes frutas ao longo do tempo, considerando temperatura, etileno, humidade relativa e valores iniciais do utilizador.
+
+## Funcionalidades principais
+- Seleção de fruta a partir de um conjunto de presets pré-definidos.
+- Ajuste de parâmetros de simulação:
+  - temperatura (°C)
+  - etileno (ppm)
+  - humidade relativa (%)
+  - número de dias
+  - dureza inicial
+  - °Brix inicial
+- Visualização dos resultados em gráficos de:
+  - dureza e °Brix ao longo do tempo
+  - índice de qualidade ao longo do tempo
+- Apresentação dos valores iniciais por defeito associados a cada fruta.
+
+## Requisitos de execução
+- Python 3.11 ou superior
+- Dependências definidas em requirements.txt
+- Comando de execução:
+  python -m streamlit run app.py
+
+## Estrutura do projeto
+- app.py — aplicação principal Streamlit
+- requirements.txt — dependências da app
+- logos/ — imagens dos logos usados na interface
+
+## Comportamento esperado
+- Ao alterar a fruta, os valores por defeito associados à fruta devem ser carregados.
+- O utilizador pode depois ajustar manualmente esses valores antes de correr a simulação.
+- O modelo deve usar o valor de °Brix inicial informado pelo utilizador na simulação e nos gráficos.
+
+## Publicação
+A app pode ser publicada em Streamlit Cloud a partir deste repositório GitHub.
