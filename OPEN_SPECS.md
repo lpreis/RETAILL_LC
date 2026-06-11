@@ -16,7 +16,7 @@ O simulador deve evoluir para um Digital Twin pós-colheita capaz de estimar fir
   - etileno (ppm)
   - CO2 (%)
   - número de dias
-  - dureza inicial
+  - dureza inicial (N)
   - °Brix inicial
 - Seleção explícita dos parâmetros ambientais usados no modelo:
   - usar temperatura: sim/não
@@ -29,6 +29,56 @@ O simulador deve evoluir para um Digital Twin pós-colheita capaz de estimar fir
   - índice de qualidade ao longo do tempo
   - bolor/carga microbiológica ao longo do tempo, quando este módulo estiver ativo
 - Apresentação dos valores iniciais por defeito associados a cada fruta.
+
+## Unidade de dureza
+A dureza/firmeza deve ser expressa explicitamente em Newton (N).
+
+Cada preset deve incluir:
+
+```text
+firmness_unit = "N"
+```
+
+Campos calibrados em Newton:
+- `dureza_0_default`
+- `dureza_min`
+- `qual_firm_threshold`
+
+Nota exibida na app:
+
+```text
+Dureza expressa em Newton (N). Para frutos pequenos, representa força de compressão/penetração aproximada e deve ser calibrada com o protocolo experimental usado.
+```
+
+Conversões úteis:
+
+```text
+1 kgf = 9.80665 N
+1 lbf = 4.44822 N
+```
+
+Valores recomendados para os presets:
+
+| Fruta | dureza_0_default | dureza_min | qual_firm_threshold |
+| --- | ---: | ---: | ---: |
+| Kiwi Hayward | 75 N | 5 N | 12 N |
+| Kiwi Baby | 35 N | 2 N | 8 N |
+| Maçã Golden | 72 N | 12 N | 35 N |
+| Maçã Reineta | 65 N | 10 N | 30 N |
+| Maçã Gala | 60 N | 9 N | 28 N |
+| Maçã Fuji | 80 N | 15 N | 40 N |
+| Laranja | 55 N | 30 N | 38 N |
+| Banana | 25 N | 2 N | 8 N |
+| Mirtilo | 3 N | 0.5 N | 1.5 N |
+| Framboesa | 1.5 N | 0.2 N | 0.7 N |
+| Pera | 60 N | 4 N | 12 N |
+| Ameixa | 35 N | 3 N | 8 N |
+| Pêssego | 35 N | 2 N | 8 N |
+| Cereja | 6 N | 1 N | 3 N |
+| Morango | 3 N | 0.5 N | 1.5 N |
+| Uva | 5 N | 1 N | 2.5 N |
+| Figo | 2 N | 0.2 N | 0.8 N |
+| Melão | 40 N | 3 N | 12 N |
 
 ## Parâmetros selecionáveis do modelo
 Cada fator ambiental deve poder ser ativado ou desativado sem remover o respetivo controlo da interface.

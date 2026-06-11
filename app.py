@@ -27,6 +27,7 @@ TEXT = {
         "co2": "CO2 (%)",
         "days": "Dias",
         "initial_firmness": "Dureza no dia 0",
+        "firmness_note": "Dureza expressa em Newton (N). Para frutos pequenos, representa força de compressão/penetração aproximada e deve ser calibrada com o protocolo experimental usado.",
         "initial_brix": "°Brix no dia 0",
         "model_modules": "Módulos do modelo",
         "use_temperature": "Usar temperatura",
@@ -91,6 +92,7 @@ TEXT = {
         "co2": "CO2 (%)",
         "days": "Days",
         "initial_firmness": "Firmness on day 0",
+        "firmness_note": "Firmness is expressed in Newtons (N). For small fruits, it represents approximate compression/penetration force and should be calibrated with the experimental protocol used.",
         "initial_brix": "°Brix on day 0",
         "model_modules": "Model modules",
         "use_temperature": "Use temperature",
@@ -155,6 +157,7 @@ TEXT = {
         "co2": "CO2 (%)",
         "days": "Días",
         "initial_firmness": "Firmeza en el día 0",
+        "firmness_note": "Firmeza expresada en Newtons (N). Para frutos pequeños, representa fuerza aproximada de compresión/penetración y debe calibrarse con el protocolo experimental usado.",
         "initial_brix": "°Brix en el día 0",
         "model_modules": "Módulos del modelo",
         "use_temperature": "Usar temperatura",
@@ -219,6 +222,7 @@ TEXT = {
         "co2": "CO2 (%)",
         "days": "Gün",
         "initial_firmness": "0. gün sertliği",
+        "firmness_note": "Sertlik Newton (N) cinsinden ifade edilir. Küçük meyveler için yaklaşık sıkıştırma/penetrasyon kuvvetini temsil eder ve kullanılan deney protokolüyle kalibre edilmelidir.",
         "initial_brix": "0. gün °Brix",
         "model_modules": "Model modülleri",
         "use_temperature": "Sıcaklığı kullan",
@@ -548,6 +552,32 @@ PRESETS = {
         "qual_firm_threshold": 6.0, "qual_brix_target": 13.5
     },
 }
+
+
+FIRMNESS_NEWTON_CALIBRATION = {
+    "kiwi_hayward": {"dureza_0_default": 75.0, "dureza_min": 5.0, "qual_firm_threshold": 12.0},
+    "kiwi_baby": {"dureza_0_default": 35.0, "dureza_min": 2.0, "qual_firm_threshold": 8.0},
+    "maca_golden": {"dureza_0_default": 72.0, "dureza_min": 12.0, "qual_firm_threshold": 35.0},
+    "maca_reineta": {"dureza_0_default": 65.0, "dureza_min": 10.0, "qual_firm_threshold": 30.0},
+    "maca_gala": {"dureza_0_default": 60.0, "dureza_min": 9.0, "qual_firm_threshold": 28.0},
+    "maca_fuji": {"dureza_0_default": 80.0, "dureza_min": 15.0, "qual_firm_threshold": 40.0},
+    "laranja": {"dureza_0_default": 55.0, "dureza_min": 30.0, "qual_firm_threshold": 38.0},
+    "banana": {"dureza_0_default": 25.0, "dureza_min": 2.0, "qual_firm_threshold": 8.0},
+    "mirtilo": {"dureza_0_default": 3.0, "dureza_min": 0.5, "qual_firm_threshold": 1.5},
+    "framboesa": {"dureza_0_default": 1.5, "dureza_min": 0.2, "qual_firm_threshold": 0.7},
+    "pera": {"dureza_0_default": 60.0, "dureza_min": 4.0, "qual_firm_threshold": 12.0},
+    "ameixa": {"dureza_0_default": 35.0, "dureza_min": 3.0, "qual_firm_threshold": 8.0},
+    "pessego": {"dureza_0_default": 35.0, "dureza_min": 2.0, "qual_firm_threshold": 8.0},
+    "cereja": {"dureza_0_default": 6.0, "dureza_min": 1.0, "qual_firm_threshold": 3.0},
+    "morango": {"dureza_0_default": 3.0, "dureza_min": 0.5, "qual_firm_threshold": 1.5},
+    "uva": {"dureza_0_default": 5.0, "dureza_min": 1.0, "qual_firm_threshold": 2.5},
+    "figo": {"dureza_0_default": 2.0, "dureza_min": 0.2, "qual_firm_threshold": 0.8},
+    "melao": {"dureza_0_default": 40.0, "dureza_min": 3.0, "qual_firm_threshold": 12.0},
+}
+
+for fruit_key, calibration in FIRMNESS_NEWTON_CALIBRATION.items():
+    PRESETS[fruit_key].update(calibration)
+    PRESETS[fruit_key]["firmness_unit"] = "N"
 
 
 def k_temp_scaling(Ea, T, Tref):
@@ -896,6 +926,7 @@ def main():
         )
 
         p = PRESETS[fruit_key]
+        firmness_unit = p.get("firmness_unit", "N")
 
         T_c = st.slider(tr(lang, "temperature"), 0.0, 25.0, 10.0, 0.5)
         E_ppm = st.slider(tr(lang, "ethylene"), 0.0, 10.0, 0.2, 0.1)
@@ -934,7 +965,7 @@ def main():
         default_brix = float(p["brix_0_default"])
 
         dureza_0 = st.number_input(
-            tr(lang, "initial_firmness"),
+            f"{tr(lang, 'initial_firmness')} ({firmness_unit})",
             min_value=0.0,
             value=default_dureza,
             step=0.1,
@@ -950,8 +981,9 @@ def main():
 
         st.markdown("---")
         st.write(tr(lang, "current_preset"), fruit_label(lang, fruit_key))
-        st.write(tr(lang, "minimum_firmness"), p["dureza_min"])
+        st.write(tr(lang, "minimum_firmness"), f"{p['dureza_min']} {firmness_unit}")
         st.write(tr(lang, "brix_range"), f"{p['brix_min']}-{p['brix_max']}")
+        st.caption(tr(lang, "firmness_note"))
 
     if st.button(tr(lang, "run_simulation"), use_container_width=True):
         result = run_simulation(
@@ -981,30 +1013,39 @@ def main():
         mold = result["mold"]
         profiles = result["profiles"]
         current_fruit_label = fruit_label(lang, fruit_key)
+        firmness_unit = result["p"].get("firmness_unit", "N")
 
         st.subheader(tr(lang, "result_for", fruit=current_fruit_label))
 
         col1, col2, col3 = st.columns(3)
-        col1.metric(tr(lang, "initial_firmness_metric"), f"{dureza[0]:.1f}")
-        col2.metric(tr(lang, "final_firmness_metric"), f"{dureza[-1]:.1f}")
+        col1.metric(tr(lang, "initial_firmness_metric"), f"{dureza[0]:.1f} {firmness_unit}")
+        col2.metric(tr(lang, "final_firmness_metric"), f"{dureza[-1]:.1f} {firmness_unit}")
         col3.metric(tr(lang, "final_quality_metric"), f"{quality[-1]:.1f}/100")
 
         col4, col5 = st.columns(2)
         col4.metric(tr(lang, "initial_brix_metric"), f"{brix[0]:.1f}")
         col5.metric(tr(lang, "final_brix_metric"), f"{brix[-1]:.1f}")
 
-        fig, ax = plt.subplots(figsize=(10, 4))
-        ax.plot(t, dureza, label=tr(lang, "firmness"))
-        ax.plot(t, brix, label="°Brix")
-        ax.set_xlabel(tr(lang, "days"))
-        ax.set_ylabel(tr(lang, "value"))
-        ax.set_title(
+        fig_firm, ax_firm = plt.subplots(figsize=(10, 4))
+        ax_firm.plot(t, dureza, label=f"{tr(lang, 'firmness')} ({firmness_unit})")
+        ax_firm.set_xlabel(tr(lang, "days"))
+        ax_firm.set_ylabel(f"{tr(lang, 'firmness')} ({firmness_unit})")
+        ax_firm.set_title(
             f"{current_fruit_label} | T={T_c:.1f}°C | E={E_ppm:.1f} ppm | "
             f"RH={RH_pct}% | CO2={CO2_pct:.2f}%"
         )
-        ax.legend()
-        ax.grid(True, alpha=0.3)
-        st.pyplot(fig)
+        ax_firm.legend()
+        ax_firm.grid(True, alpha=0.3)
+        st.pyplot(fig_firm)
+
+        fig_brix, ax_brix = plt.subplots(figsize=(10, 4))
+        ax_brix.plot(t, brix, label="°Brix", color="tab:orange")
+        ax_brix.set_xlabel(tr(lang, "days"))
+        ax_brix.set_ylabel("°Brix")
+        ax_brix.set_title(f"{current_fruit_label} | °Brix")
+        ax_brix.legend()
+        ax_brix.grid(True, alpha=0.3)
+        st.pyplot(fig_brix)
 
         if advanced_profiles:
             fig_env, axes = plt.subplots(4, 1, figsize=(10, 7), sharex=True)
@@ -1048,6 +1089,7 @@ def main():
                 "RH_pct": RH_pct,
                 "CO2_pct": CO2_pct,
                 tr(lang, "json_days"): days,
+                "firmness_unit": firmness_unit,
                 "dureza_0": dureza_0,
                 "brix_0": brix_0,
                 "use_temperature": use_temperature,
