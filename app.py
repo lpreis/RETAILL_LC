@@ -5,6 +5,239 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
 
+LANGUAGES = {
+    "pt": "Português",
+    "en": "English",
+    "es": "Español",
+    "tr": "Türkçe",
+}
+
+
+TEXT = {
+    "pt": {
+        "page_title": "Simulador de Frutas",
+        "missing_main_logo": "Logo principal não encontrado.",
+        "app_title": "Simulador de qualidade e firmeza de frutas",
+        "language": "Idioma",
+        "parameters": "Parâmetros",
+        "fruit": "Fruta",
+        "temperature": "Temperatura (°C)",
+        "ethylene": "Etileno (ppm)",
+        "humidity": "Humidade (%)",
+        "days": "Dias",
+        "initial_firmness": "Dureza no dia 0",
+        "initial_brix": "°Brix no dia 0",
+        "current_preset": "Preset atual:",
+        "minimum_firmness": "Dureza mínima:",
+        "brix_range": "Faixa de °Brix:",
+        "run_simulation": "Executar simulação",
+        "result_for": "Resultado para {fruit}",
+        "initial_firmness_metric": "Dureza inicial",
+        "final_firmness_metric": "Dureza final",
+        "final_quality_metric": "Qualidade final",
+        "initial_brix_metric": "°Brix inicial",
+        "final_brix_metric": "°Brix final",
+        "firmness": "Dureza",
+        "value": "Valor",
+        "quality_index": "Índice de qualidade",
+        "quality_axis": "Qualidade (0-100)",
+        "used_parameters": "Parâmetros usados",
+        "json_fruit": "fruta",
+        "json_days": "dias",
+        "empty_state": "Ajuste os parâmetros à esquerda e clique em \"Executar simulação\" para gerar os gráficos.",
+    },
+    "en": {
+        "page_title": "Fruit Simulator",
+        "missing_main_logo": "Main logo not found.",
+        "app_title": "Fruit quality and firmness simulator",
+        "language": "Language",
+        "parameters": "Parameters",
+        "fruit": "Fruit",
+        "temperature": "Temperature (°C)",
+        "ethylene": "Ethylene (ppm)",
+        "humidity": "Humidity (%)",
+        "days": "Days",
+        "initial_firmness": "Firmness on day 0",
+        "initial_brix": "°Brix on day 0",
+        "current_preset": "Current preset:",
+        "minimum_firmness": "Minimum firmness:",
+        "brix_range": "°Brix range:",
+        "run_simulation": "Run simulation",
+        "result_for": "Result for {fruit}",
+        "initial_firmness_metric": "Initial firmness",
+        "final_firmness_metric": "Final firmness",
+        "final_quality_metric": "Final quality",
+        "initial_brix_metric": "Initial °Brix",
+        "final_brix_metric": "Final °Brix",
+        "firmness": "Firmness",
+        "value": "Value",
+        "quality_index": "Quality index",
+        "quality_axis": "Quality (0-100)",
+        "used_parameters": "Parameters used",
+        "json_fruit": "fruit",
+        "json_days": "days",
+        "empty_state": "Adjust the parameters on the left and click \"Run simulation\" to generate the charts.",
+    },
+    "es": {
+        "page_title": "Simulador de Frutas",
+        "missing_main_logo": "No se encontró el logotipo principal.",
+        "app_title": "Simulador de calidad y firmeza de frutas",
+        "language": "Idioma",
+        "parameters": "Parámetros",
+        "fruit": "Fruta",
+        "temperature": "Temperatura (°C)",
+        "ethylene": "Etileno (ppm)",
+        "humidity": "Humedad (%)",
+        "days": "Días",
+        "initial_firmness": "Firmeza en el día 0",
+        "initial_brix": "°Brix en el día 0",
+        "current_preset": "Preset actual:",
+        "minimum_firmness": "Firmeza mínima:",
+        "brix_range": "Rango de °Brix:",
+        "run_simulation": "Ejecutar simulación",
+        "result_for": "Resultado para {fruit}",
+        "initial_firmness_metric": "Firmeza inicial",
+        "final_firmness_metric": "Firmeza final",
+        "final_quality_metric": "Calidad final",
+        "initial_brix_metric": "°Brix inicial",
+        "final_brix_metric": "°Brix final",
+        "firmness": "Firmeza",
+        "value": "Valor",
+        "quality_index": "Índice de calidad",
+        "quality_axis": "Calidad (0-100)",
+        "used_parameters": "Parámetros usados",
+        "json_fruit": "fruta",
+        "json_days": "días",
+        "empty_state": "Ajuste los parámetros de la izquierda y haga clic en \"Ejecutar simulación\" para generar los gráficos.",
+    },
+    "tr": {
+        "page_title": "Meyve Simülatörü",
+        "missing_main_logo": "Ana logo bulunamadı.",
+        "app_title": "Meyve kalite ve sertlik simülatörü",
+        "language": "Dil",
+        "parameters": "Parametreler",
+        "fruit": "Meyve",
+        "temperature": "Sıcaklık (°C)",
+        "ethylene": "Etilen (ppm)",
+        "humidity": "Nem (%)",
+        "days": "Gün",
+        "initial_firmness": "0. gün sertliği",
+        "initial_brix": "0. gün °Brix",
+        "current_preset": "Geçerli preset:",
+        "minimum_firmness": "Minimum sertlik:",
+        "brix_range": "°Brix aralığı:",
+        "run_simulation": "Simülasyonu çalıştır",
+        "result_for": "{fruit} sonucu",
+        "initial_firmness_metric": "Başlangıç sertliği",
+        "final_firmness_metric": "Son sertlik",
+        "final_quality_metric": "Son kalite",
+        "initial_brix_metric": "Başlangıç °Brix",
+        "final_brix_metric": "Son °Brix",
+        "firmness": "Sertlik",
+        "value": "Değer",
+        "quality_index": "Kalite endeksi",
+        "quality_axis": "Kalite (0-100)",
+        "used_parameters": "Kullanılan parametreler",
+        "json_fruit": "meyve",
+        "json_days": "gün",
+        "empty_state": "Grafikleri oluşturmak için soldaki parametreleri ayarlayın ve \"Simülasyonu çalıştır\" düğmesine tıklayın.",
+    },
+}
+
+
+FRUIT_LABELS = {
+    "pt": {
+        "kiwi_hayward": "Kiwi (Hayward)",
+        "kiwi_baby": "Kiwi (Baby / Kiwi Berry)",
+        "maca_golden": "Maçã (Golden)",
+        "maca_reineta": "Maçã (Reineta)",
+        "maca_gala": "Maçã (Gala)",
+        "maca_fuji": "Maçã (Fuji)",
+        "laranja": "Laranja",
+        "banana": "Banana",
+        "mirtilo": "Mirtilo",
+        "framboesa": "Framboesa",
+        "pera": "Pera",
+        "ameixa": "Ameixa",
+        "pessego": "Pêssego",
+        "cereja": "Cereja",
+        "morango": "Morango",
+        "uva": "Uva",
+        "figo": "Figo",
+        "melao": "Melão",
+    },
+    "en": {
+        "kiwi_hayward": "Kiwi (Hayward)",
+        "kiwi_baby": "Kiwi berry",
+        "maca_golden": "Apple (Golden)",
+        "maca_reineta": "Apple (Reineta)",
+        "maca_gala": "Apple (Gala)",
+        "maca_fuji": "Apple (Fuji)",
+        "laranja": "Orange",
+        "banana": "Banana",
+        "mirtilo": "Blueberry",
+        "framboesa": "Raspberry",
+        "pera": "Pear",
+        "ameixa": "Plum",
+        "pessego": "Peach",
+        "cereja": "Cherry",
+        "morango": "Strawberry",
+        "uva": "Grape",
+        "figo": "Fig",
+        "melao": "Melon",
+    },
+    "es": {
+        "kiwi_hayward": "Kiwi (Hayward)",
+        "kiwi_baby": "Kiwi baby",
+        "maca_golden": "Manzana (Golden)",
+        "maca_reineta": "Manzana (Reineta)",
+        "maca_gala": "Manzana (Gala)",
+        "maca_fuji": "Manzana (Fuji)",
+        "laranja": "Naranja",
+        "banana": "Banana",
+        "mirtilo": "Arándano",
+        "framboesa": "Frambuesa",
+        "pera": "Pera",
+        "ameixa": "Ciruela",
+        "pessego": "Melocotón",
+        "cereja": "Cereza",
+        "morango": "Fresa",
+        "uva": "Uva",
+        "figo": "Higo",
+        "melao": "Melón",
+    },
+    "tr": {
+        "kiwi_hayward": "Kivi (Hayward)",
+        "kiwi_baby": "Mini kivi",
+        "maca_golden": "Elma (Golden)",
+        "maca_reineta": "Elma (Reineta)",
+        "maca_gala": "Elma (Gala)",
+        "maca_fuji": "Elma (Fuji)",
+        "laranja": "Portakal",
+        "banana": "Muz",
+        "mirtilo": "Yaban mersini",
+        "framboesa": "Ahududu",
+        "pera": "Armut",
+        "ameixa": "Erik",
+        "pessego": "Şeftali",
+        "cereja": "Kiraz",
+        "morango": "Çilek",
+        "uva": "Üzüm",
+        "figo": "İncir",
+        "melao": "Kavun",
+    },
+}
+
+
+def tr(lang, key, **kwargs):
+    value = TEXT[lang][key]
+    return value.format(**kwargs) if kwargs else value
+
+
+def fruit_label(lang, fruit_key):
+    return FRUIT_LABELS[lang].get(fruit_key, PRESETS[fruit_key]["label"])
+
+
 # ----------------------------
 # Presets (com defaults t=0)
 # ----------------------------
@@ -243,7 +476,7 @@ def run_simulation(fruit_key, T_c, E_ppm, RH_pct, days, dureza_0_user, brix_0_us
 
 
 def main():
-    st.set_page_config(page_title="Simulador de Frutas", layout="wide")
+    st.set_page_config(page_title=tr("pt", "page_title"), layout="wide")
 
     logo_dir = Path(__file__).resolve().parent / "logos"
     main_logo = logo_dir / "RETAILL_LC.jpg"
@@ -273,38 +506,46 @@ def main():
         if main_logo.exists():
             st.image(str(main_logo), width=120)
         else:
-            st.info("Logo principal não encontrado.")
+            st.info(tr("pt", "missing_main_logo"))
 
-    st.title("Simulador de qualidade e firmeza de frutas")
+        lang = st.selectbox(
+            tr("pt", "language"),
+            options=list(LANGUAGES.keys()),
+            format_func=lambda code: LANGUAGES[code],
+            index=0,
+            key="language",
+        )
+
+    st.title(tr(lang, "app_title"))
 
     with st.sidebar:
-        st.header("Parâmetros")
+        st.header(tr(lang, "parameters"))
         fruit_key = st.selectbox(
-            "Fruta",
+            tr(lang, "fruit"),
             options=list(PRESETS.keys()),
-            format_func=lambda key: PRESETS[key]["label"],
+            format_func=lambda key: fruit_label(lang, key),
             key="fruit_key",
         )
 
         p = PRESETS[fruit_key]
 
-        T_c = st.slider("Temperatura (°C)", 0.0, 25.0, 10.0, 0.5)
-        E_ppm = st.slider("Etileno (ppm)", 0.0, 10.0, 0.2, 0.1)
-        RH_pct = st.slider("Humidade (%)", 40, 100, 90, 1)
-        days = st.slider("Dias", 5, 180, 40, 5)
+        T_c = st.slider(tr(lang, "temperature"), 0.0, 25.0, 10.0, 0.5)
+        E_ppm = st.slider(tr(lang, "ethylene"), 0.0, 10.0, 0.2, 0.1)
+        RH_pct = st.slider(tr(lang, "humidity"), 40, 100, 90, 1)
+        days = st.slider(tr(lang, "days"), 5, 180, 40, 5)
 
         default_dureza = float(p["dureza_0_default"])
         default_brix = float(p["brix_0_default"])
 
         dureza_0 = st.number_input(
-            "Dureza no dia 0",
+            tr(lang, "initial_firmness"),
             min_value=0.0,
             value=default_dureza,
             step=0.1,
             key=f"dureza_0_{fruit_key}",
         )
         brix_0 = st.number_input(
-            "°Brix no dia 0",
+            tr(lang, "initial_brix"),
             min_value=0.0,
             value=default_brix,
             step=0.1,
@@ -312,59 +553,60 @@ def main():
         )
 
         st.markdown("---")
-        st.write("Preset atual:", p["label"])
-        st.write("Dureza mínima:", p["dureza_min"])
-        st.write("Faixa de °Brix:", f"{p['brix_min']}–{p['brix_max']}")
+        st.write(tr(lang, "current_preset"), fruit_label(lang, fruit_key))
+        st.write(tr(lang, "minimum_firmness"), p["dureza_min"])
+        st.write(tr(lang, "brix_range"), f"{p['brix_min']}-{p['brix_max']}")
 
-    if st.button("Executar simulação", use_container_width=True):
+    if st.button(tr(lang, "run_simulation"), use_container_width=True):
         result = run_simulation(fruit_key, T_c, E_ppm, RH_pct, days, dureza_0, brix_0)
 
         t = result["t"]
         dureza = result["dureza"]
         brix = result["brix"]
         quality = result["quality"]
+        current_fruit_label = fruit_label(lang, fruit_key)
 
-        st.subheader(f"Resultado para {result['p']['label']}")
+        st.subheader(tr(lang, "result_for", fruit=current_fruit_label))
 
         col1, col2, col3 = st.columns(3)
-        col1.metric("Dureza inicial", f"{dureza[0]:.1f}")
-        col2.metric("Dureza final", f"{dureza[-1]:.1f}")
-        col3.metric("Qualidade final", f"{quality[-1]:.1f}/100")
+        col1.metric(tr(lang, "initial_firmness_metric"), f"{dureza[0]:.1f}")
+        col2.metric(tr(lang, "final_firmness_metric"), f"{dureza[-1]:.1f}")
+        col3.metric(tr(lang, "final_quality_metric"), f"{quality[-1]:.1f}/100")
 
         col4, col5 = st.columns(2)
-        col4.metric("°Brix inicial", f"{brix[0]:.1f}")
-        col5.metric("°Brix final", f"{brix[-1]:.1f}")
+        col4.metric(tr(lang, "initial_brix_metric"), f"{brix[0]:.1f}")
+        col5.metric(tr(lang, "final_brix_metric"), f"{brix[-1]:.1f}")
 
         fig, ax = plt.subplots(figsize=(10, 4))
-        ax.plot(t, dureza, label="Dureza")
+        ax.plot(t, dureza, label=tr(lang, "firmness"))
         ax.plot(t, brix, label="°Brix")
-        ax.set_xlabel("Dias")
-        ax.set_ylabel("Valor")
-        ax.set_title(f"{result['p']['label']} | T={T_c:.1f}°C | E={E_ppm:.1f} ppm | RH={RH_pct}%")
+        ax.set_xlabel(tr(lang, "days"))
+        ax.set_ylabel(tr(lang, "value"))
+        ax.set_title(f"{current_fruit_label} | T={T_c:.1f}°C | E={E_ppm:.1f} ppm | RH={RH_pct}%")
         ax.legend()
         ax.grid(True, alpha=0.3)
         st.pyplot(fig)
 
         fig2, ax2 = plt.subplots(figsize=(10, 4))
         ax2.plot(t, quality)
-        ax2.set_ylabel("Qualidade (0–100)")
-        ax2.set_xlabel("Dias")
-        ax2.set_title("Índice de qualidade")
+        ax2.set_ylabel(tr(lang, "quality_axis"))
+        ax2.set_xlabel(tr(lang, "days"))
+        ax2.set_title(tr(lang, "quality_index"))
         ax2.grid(True, alpha=0.3)
         st.pyplot(fig2)
 
-        with st.expander("Parâmetros usados"):
+        with st.expander(tr(lang, "used_parameters")):
             st.json({
-                "fruta": result['p']['label'],
+                tr(lang, "json_fruit"): current_fruit_label,
                 "T_C": T_c,
                 "E_ppm": E_ppm,
                 "RH_pct": RH_pct,
-                "dias": days,
+                tr(lang, "json_days"): days,
                 "dureza_0": dureza_0,
                 "brix_0": brix_0,
             })
     else:
-        st.info("Ajuste os parâmetros à esquerda e clique em “Executar simulação” para gerar os gráficos.")
+        st.info(tr(lang, "empty_state"))
 
 
 if __name__ == "__main__":

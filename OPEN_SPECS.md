@@ -1,9 +1,12 @@
-# Open Specs — Simulador de Frutas
+# Open Specs - Simulador de Frutas
 
 ## Objetivo
 Esta aplicação Streamlit simula a evolução da firmeza e do teor de °Brix de diferentes frutas ao longo do tempo, considerando temperatura, etileno, humidade relativa e valores iniciais do utilizador.
 
 ## Funcionalidades principais
+- Seleção de idioma: Português, Inglês, Espanhol e Turco.
+- O idioma inicial por defeito é Português.
+- A interface, os nomes das frutas, as métricas, os gráficos e as mensagens devem refletir o idioma selecionado.
 - Seleção de fruta a partir de um conjunto de presets pré-definidos.
 - Ajuste de parâmetros de simulação:
   - temperatura (°C)
@@ -24,11 +27,13 @@ Esta aplicação Streamlit simula a evolução da firmeza e do teor de °Brix de
   python -m streamlit run app.py
 
 ## Estrutura do projeto
-- app.py — aplicação principal Streamlit
-- requirements.txt — dependências da app
-- logos/ — imagens dos logos usados na interface
+- app.py - aplicação principal Streamlit
+- requirements.txt - dependências da app
+- logos/ - imagens dos logos usados na interface
 
 ## Comportamento esperado
+- Ao abrir a app, o seletor de idioma deve estar em Português.
+- Ao alterar o idioma, os textos visíveis da interface devem mudar sem alterar os valores da simulação.
 - Ao alterar a fruta, os valores por defeito associados à fruta devem ser carregados automaticamente no menu lateral.
 - O utilizador pode depois ajustar manualmente esses valores antes de correr a simulação.
 - Os valores de dureza inicial e °Brix inicial usados na simulação devem corresponder aos valores visíveis no menu no momento da execução.
