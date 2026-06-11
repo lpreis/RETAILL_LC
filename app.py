@@ -15,18 +15,46 @@ LANGUAGES = {
 
 TEXT = {
     "pt": {
-        "page_title": "Simulador de Frutas",
+        "page_title": "Simulador de Índice de Qualidade de Frutas",
         "missing_main_logo": "Logo principal não encontrado.",
-        "app_title": "Simulador de qualidade e firmeza de frutas",
+        "app_title": "Simulador de Índice de Qualidade de Frutas",
         "language": "Idioma",
         "parameters": "Parâmetros",
         "fruit": "Fruta",
         "temperature": "Temperatura (°C)",
         "ethylene": "Etileno (ppm)",
         "humidity": "Humidade (%)",
+        "co2": "CO2 (%)",
         "days": "Dias",
         "initial_firmness": "Dureza no dia 0",
         "initial_brix": "°Brix no dia 0",
+        "model_modules": "Módulos do modelo",
+        "use_temperature": "Usar temperatura",
+        "use_humidity": "Usar humidade",
+        "use_ethylene": "Usar etileno",
+        "use_co2": "Usar CO2",
+        "use_mold": "Usar bolor na qualidade",
+        "advanced_profiles": "Usar perfis temporais ambientais",
+        "temporal_profile": "Perfil temporal",
+        "profile_model": "Modelo",
+        "profile_constant": "Constante",
+        "profile_linear_increase": "Aumento linear",
+        "profile_linear_decrease": "Diminuição linear",
+        "profile_exponential": "Aproximação exponencial",
+        "profile_sinusoidal": "Oscilação diária",
+        "profile_step": "Degrau",
+        "profile_pulse": "Pulso",
+        "profile_slope": "Variação por dia",
+        "profile_target": "Valor alvo",
+        "profile_rate": "Taxa",
+        "profile_amplitude": "Amplitude",
+        "profile_period": "Período (dias)",
+        "profile_phase": "Fase",
+        "profile_step_day": "Dia do degrau",
+        "profile_step_value": "Valor após degrau",
+        "profile_pulse_start": "Início do pulso",
+        "profile_pulse_end": "Fim do pulso",
+        "profile_pulse_value": "Valor do pulso",
         "current_preset": "Preset atual:",
         "minimum_firmness": "Dureza mínima:",
         "brix_range": "Faixa de °Brix:",
@@ -38,6 +66,10 @@ TEXT = {
         "initial_brix_metric": "°Brix inicial",
         "final_brix_metric": "°Brix final",
         "firmness": "Dureza",
+        "mold": "Bolor",
+        "mold_axis": "Bolor / carga microbiológica (0-1)",
+        "mold_index": "Bolor / carga microbiológica",
+        "environment_profiles": "Perfis ambientais",
         "value": "Valor",
         "quality_index": "Índice de qualidade",
         "quality_axis": "Qualidade (0-100)",
@@ -47,18 +79,46 @@ TEXT = {
         "empty_state": "Ajuste os parâmetros à esquerda e clique em \"Executar simulação\" para gerar os gráficos.",
     },
     "en": {
-        "page_title": "Fruit Simulator",
+        "page_title": "Fruit Quality Index Simulator",
         "missing_main_logo": "Main logo not found.",
-        "app_title": "Fruit quality and firmness simulator",
+        "app_title": "Fruit Quality Index Simulator",
         "language": "Language",
         "parameters": "Parameters",
         "fruit": "Fruit",
         "temperature": "Temperature (°C)",
         "ethylene": "Ethylene (ppm)",
         "humidity": "Humidity (%)",
+        "co2": "CO2 (%)",
         "days": "Days",
         "initial_firmness": "Firmness on day 0",
         "initial_brix": "°Brix on day 0",
+        "model_modules": "Model modules",
+        "use_temperature": "Use temperature",
+        "use_humidity": "Use humidity",
+        "use_ethylene": "Use ethylene",
+        "use_co2": "Use CO2",
+        "use_mold": "Use mold in quality",
+        "advanced_profiles": "Use temporal environmental profiles",
+        "temporal_profile": "Temporal profile",
+        "profile_model": "Model",
+        "profile_constant": "Constant",
+        "profile_linear_increase": "Linear increase",
+        "profile_linear_decrease": "Linear decrease",
+        "profile_exponential": "Exponential approach",
+        "profile_sinusoidal": "Daily oscillation",
+        "profile_step": "Step change",
+        "profile_pulse": "Pulse",
+        "profile_slope": "Change per day",
+        "profile_target": "Target value",
+        "profile_rate": "Rate",
+        "profile_amplitude": "Amplitude",
+        "profile_period": "Period (days)",
+        "profile_phase": "Phase",
+        "profile_step_day": "Step day",
+        "profile_step_value": "Value after step",
+        "profile_pulse_start": "Pulse start",
+        "profile_pulse_end": "Pulse end",
+        "profile_pulse_value": "Pulse value",
         "current_preset": "Current preset:",
         "minimum_firmness": "Minimum firmness:",
         "brix_range": "°Brix range:",
@@ -70,6 +130,10 @@ TEXT = {
         "initial_brix_metric": "Initial °Brix",
         "final_brix_metric": "Final °Brix",
         "firmness": "Firmness",
+        "mold": "Mold",
+        "mold_axis": "Mold / microbial load (0-1)",
+        "mold_index": "Mold / microbial load",
+        "environment_profiles": "Environmental profiles",
         "value": "Value",
         "quality_index": "Quality index",
         "quality_axis": "Quality (0-100)",
@@ -79,18 +143,46 @@ TEXT = {
         "empty_state": "Adjust the parameters on the left and click \"Run simulation\" to generate the charts.",
     },
     "es": {
-        "page_title": "Simulador de Frutas",
+        "page_title": "Simulador de Índice de Calidad de Frutas",
         "missing_main_logo": "No se encontró el logotipo principal.",
-        "app_title": "Simulador de calidad y firmeza de frutas",
+        "app_title": "Simulador de Índice de Calidad de Frutas",
         "language": "Idioma",
         "parameters": "Parámetros",
         "fruit": "Fruta",
         "temperature": "Temperatura (°C)",
         "ethylene": "Etileno (ppm)",
         "humidity": "Humedad (%)",
+        "co2": "CO2 (%)",
         "days": "Días",
         "initial_firmness": "Firmeza en el día 0",
         "initial_brix": "°Brix en el día 0",
+        "model_modules": "Módulos del modelo",
+        "use_temperature": "Usar temperatura",
+        "use_humidity": "Usar humedad",
+        "use_ethylene": "Usar etileno",
+        "use_co2": "Usar CO2",
+        "use_mold": "Usar moho en la calidad",
+        "advanced_profiles": "Usar perfiles ambientales temporales",
+        "temporal_profile": "Perfil temporal",
+        "profile_model": "Modelo",
+        "profile_constant": "Constante",
+        "profile_linear_increase": "Aumento lineal",
+        "profile_linear_decrease": "Disminución lineal",
+        "profile_exponential": "Aproximación exponencial",
+        "profile_sinusoidal": "Oscilación diaria",
+        "profile_step": "Escalón",
+        "profile_pulse": "Pulso",
+        "profile_slope": "Cambio por día",
+        "profile_target": "Valor objetivo",
+        "profile_rate": "Tasa",
+        "profile_amplitude": "Amplitud",
+        "profile_period": "Período (días)",
+        "profile_phase": "Fase",
+        "profile_step_day": "Día del escalón",
+        "profile_step_value": "Valor después del escalón",
+        "profile_pulse_start": "Inicio del pulso",
+        "profile_pulse_end": "Fin del pulso",
+        "profile_pulse_value": "Valor del pulso",
         "current_preset": "Preset actual:",
         "minimum_firmness": "Firmeza mínima:",
         "brix_range": "Rango de °Brix:",
@@ -102,6 +194,10 @@ TEXT = {
         "initial_brix_metric": "°Brix inicial",
         "final_brix_metric": "°Brix final",
         "firmness": "Firmeza",
+        "mold": "Moho",
+        "mold_axis": "Moho / carga microbiológica (0-1)",
+        "mold_index": "Moho / carga microbiológica",
+        "environment_profiles": "Perfiles ambientales",
         "value": "Valor",
         "quality_index": "Índice de calidad",
         "quality_axis": "Calidad (0-100)",
@@ -111,18 +207,46 @@ TEXT = {
         "empty_state": "Ajuste los parámetros de la izquierda y haga clic en \"Ejecutar simulación\" para generar los gráficos.",
     },
     "tr": {
-        "page_title": "Meyve Simülatörü",
+        "page_title": "Meyve Kalite İndeksi Simülatörü",
         "missing_main_logo": "Ana logo bulunamadı.",
-        "app_title": "Meyve kalite ve sertlik simülatörü",
+        "app_title": "Meyve Kalite İndeksi Simülatörü",
         "language": "Dil",
         "parameters": "Parametreler",
         "fruit": "Meyve",
         "temperature": "Sıcaklık (°C)",
         "ethylene": "Etilen (ppm)",
         "humidity": "Nem (%)",
+        "co2": "CO2 (%)",
         "days": "Gün",
         "initial_firmness": "0. gün sertliği",
         "initial_brix": "0. gün °Brix",
+        "model_modules": "Model modülleri",
+        "use_temperature": "Sıcaklığı kullan",
+        "use_humidity": "Nemi kullan",
+        "use_ethylene": "Etileni kullan",
+        "use_co2": "CO2 kullan",
+        "use_mold": "Kalitede küfü kullan",
+        "advanced_profiles": "Zamana bağlı çevresel profilleri kullan",
+        "temporal_profile": "Zamansal profil",
+        "profile_model": "Model",
+        "profile_constant": "Sabit",
+        "profile_linear_increase": "Doğrusal artış",
+        "profile_linear_decrease": "Doğrusal azalış",
+        "profile_exponential": "Üstel yaklaşım",
+        "profile_sinusoidal": "Günlük salınım",
+        "profile_step": "Basamak değişimi",
+        "profile_pulse": "Darbe",
+        "profile_slope": "Günlük değişim",
+        "profile_target": "Hedef değer",
+        "profile_rate": "Oran",
+        "profile_amplitude": "Genlik",
+        "profile_period": "Periyot (gün)",
+        "profile_phase": "Faz",
+        "profile_step_day": "Basamak günü",
+        "profile_step_value": "Basamak sonrası değer",
+        "profile_pulse_start": "Darbe başlangıcı",
+        "profile_pulse_end": "Darbe bitişi",
+        "profile_pulse_value": "Darbe değeri",
         "current_preset": "Geçerli preset:",
         "minimum_firmness": "Minimum sertlik:",
         "brix_range": "°Brix aralığı:",
@@ -134,6 +258,10 @@ TEXT = {
         "initial_brix_metric": "Başlangıç °Brix",
         "final_brix_metric": "Son °Brix",
         "firmness": "Sertlik",
+        "mold": "Küf",
+        "mold_axis": "Küf / mikrobiyal yük (0-1)",
+        "mold_index": "Küf / mikrobiyal yük",
+        "environment_profiles": "Çevresel profiller",
         "value": "Değer",
         "quality_index": "Kalite endeksi",
         "quality_axis": "Kalite (0-100)",
@@ -236,6 +364,17 @@ def tr(lang, key, **kwargs):
 
 def fruit_label(lang, fruit_key):
     return FRUIT_LABELS[lang].get(fruit_key, PRESETS[fruit_key]["label"])
+
+
+PROFILE_MODEL_LABEL_KEYS = {
+    "constant": "profile_constant",
+    "linear_increase": "profile_linear_increase",
+    "linear_decrease": "profile_linear_decrease",
+    "exponential_approach": "profile_exponential",
+    "sinusoidal": "profile_sinusoidal",
+    "step": "profile_step",
+    "pulse": "profile_pulse",
+}
 
 
 # ----------------------------
@@ -416,26 +555,121 @@ def k_temp_scaling(Ea, T, Tref):
     return np.exp((-Ea / R) * (1.0 / T - 1.0 / Tref))
 
 
-def run_simulation(fruit_key, T_c, E_ppm, RH_pct, days, dureza_0_user, brix_0_user):
+def constant_profile(value):
+    return {"model": "constant", "x0": float(value)}
+
+
+def generate_profile(t, cfg, min_value=None, max_value=None):
+    model = cfg.get("model", "constant")
+    x0 = float(cfg.get("x0", 0.0))
+
+    if model == "constant":
+        values = np.full_like(t, x0, dtype=float)
+    elif model == "linear_increase":
+        values = x0 + float(cfg.get("slope", 0.0)) * t
+    elif model == "linear_decrease":
+        values = x0 - float(cfg.get("slope", 0.0)) * t
+    elif model == "exponential_approach":
+        x_inf = float(cfg.get("x_inf", x0))
+        rate = max(0.0, float(cfg.get("rate", 1.0)))
+        values = x_inf + (x0 - x_inf) * np.exp(-rate * t)
+    elif model == "sinusoidal":
+        amplitude = float(cfg.get("amplitude", 0.0))
+        period = max(1e-6, float(cfg.get("period", 1.0)))
+        phase = float(cfg.get("phase", 0.0))
+        values = x0 + amplitude * np.sin(2.0 * np.pi * t / period + phase)
+    elif model == "step":
+        t_step = float(cfg.get("t_step", 0.0))
+        x1 = float(cfg.get("x1", x0))
+        values = np.where(t < t_step, x0, x1)
+    elif model == "pulse":
+        t_start = float(cfg.get("t_start", 0.0))
+        t_end = float(cfg.get("t_end", t_start))
+        x_pulse = float(cfg.get("x_pulse", x0))
+        values = np.where((t >= t_start) & (t <= t_end), x_pulse, x0)
+    else:
+        values = np.full_like(t, x0, dtype=float)
+
+    if min_value is not None or max_value is not None:
+        values = np.clip(
+            values,
+            -np.inf if min_value is None else min_value,
+            np.inf if max_value is None else max_value,
+        )
+
+    return values
+
+
+def mold_load_curve(p, T_profile, RH_profile, t, use_temperature=True, use_humidity=True):
+    T_effective = T_profile if use_temperature else np.full_like(t, p["Tref_C"], dtype=float)
+    RH_effective = RH_profile if use_humidity else np.full_like(t, p["RH_ref"], dtype=float)
+
+    r_ref = p.get("mold_r_ref", 0.015)
+    rh_crit = p.get("mold_RH_crit", 88.0)
+    q10 = p.get("mold_Q10", 2.0)
+
+    temp_factor = q10 ** ((T_effective - p["Tref_C"]) / 10.0)
+    humidity_factor = 1.0 / (1.0 + np.exp(-0.25 * (RH_effective - rh_crit)))
+    r_mold = r_ref * temp_factor * humidity_factor
+
+    if len(t) > 1:
+        dt = t[1] - t[0]
+    else:
+        dt = 0.05
+    mold_pressure = np.cumsum(r_mold) * dt
+    mold = 1.0 - np.exp(-mold_pressure)
+    return np.clip(mold, 0.0, 1.0), r_mold
+
+
+def run_simulation(
+    fruit_key,
+    T_c,
+    E_ppm,
+    RH_pct,
+    CO2_pct,
+    days,
+    dureza_0_user,
+    brix_0_user,
+    use_temperature=True,
+    use_humidity=True,
+    use_ethylene=True,
+    use_co2=True,
+    use_mold=True,
+    temperature_cfg=None,
+    humidity_cfg=None,
+    ethylene_cfg=None,
+    co2_cfg=None,
+):
     dt = 0.05
 
     p = PRESETS[fruit_key]
     t = np.arange(0.0, days, dt)
 
-    T_K = T_c + 273.15
+    T_profile = generate_profile(t, temperature_cfg or constant_profile(T_c), min_value=0.0, max_value=40.0)
+    RH_profile = generate_profile(t, humidity_cfg or constant_profile(RH_pct), min_value=0.0, max_value=100.0)
+    E_profile = generate_profile(t, ethylene_cfg or constant_profile(E_ppm), min_value=0.0)
+    CO2_profile = generate_profile(t, co2_cfg or constant_profile(CO2_pct), min_value=0.0, max_value=20.0)
+
+    T_K = T_profile + 273.15
     Tref_K = p["Tref_C"] + 273.15
-    kT = p["k_firm_ref"] * k_temp_scaling(p["Ea_J"], T_K, Tref_K)
-    kE = 1.0 + p["alpha_E"] * E_ppm
+    kT = k_temp_scaling(p["Ea_J"], T_K, Tref_K) if use_temperature else np.ones_like(t)
+    kE = 1.0 + p["alpha_E"] * E_profile if use_ethylene else np.ones_like(t)
 
     RH_ref = p["RH_ref"]
-    RH_deficit = max(0.0, (RH_ref - RH_pct) / 100.0)
-    kRH = 1.0 + p["beta_RH"] * RH_deficit
+    RH_deficit = np.maximum(0.0, (RH_ref - RH_profile) / 100.0)
+    kRH = 1.0 + p["beta_RH"] * RH_deficit if use_humidity else np.ones_like(t)
+    beta_CO2 = p.get("beta_CO2", 0.08)
+    kCO2 = 1.0 / (1.0 + beta_CO2 * CO2_profile) if use_co2 else np.ones_like(t)
 
-    k = kT * kE * kRH
+    k = p["k_firm_ref"] * kT * kE * kRH * kCO2
 
     dureza_min = p["dureza_min"]
     dureza_0 = max(dureza_min + 1e-6, float(dureza_0_user))
-    dureza = dureza_min + (dureza_0 - dureza_min) * np.exp(-k * t)
+    dureza = np.empty_like(t)
+    if len(dureza) > 0:
+        dureza[0] = dureza_0
+        for i in range(1, len(t)):
+            dureza[i] = dureza_min + (dureza[i - 1] - dureza_min) * np.exp(-k[i - 1] * dt)
 
     brix_min = p["brix_min"]
     brix_max = p["brix_max"]
@@ -446,33 +680,167 @@ def run_simulation(fruit_key, T_c, E_ppm, RH_pct, days, dureza_0_user, brix_0_us
     brix_0 = min(brix_max - eps, max(brix_min + eps, brix_0))
 
     t0_base = (
-        -0.05 * (T_c - p["Tref_C"])
-        - 2.0 * np.log1p(E_ppm)
-        + 0.06 * max(0.0, RH_ref - RH_pct)
+        (-0.05 * (float(T_profile[0]) - p["Tref_C"]) if use_temperature else 0.0)
+        + (-2.0 * np.log1p(float(E_profile[0])) if use_ethylene else 0.0)
+        + (0.06 * max(0.0, RH_ref - float(RH_profile[0])) if use_humidity else 0.0)
+        + (0.35 * beta_CO2 * float(CO2_profile[0]) if use_co2 else 0.0)
     )
 
     y = (brix_0 - brix_min) / (brix_max - brix_min)
     t0_from_b0 = (1.0 / g) * np.log((1.0 / y) - 1.0)
 
     t0_eff = t0_from_b0 + t0_base
-    brix = brix_min + (brix_max - brix_min) / (1.0 + np.exp(-g * (t - t0_eff)))
+    brix_speed = (
+        np.sqrt(np.maximum(kT, 1e-6))
+        * np.maximum(kE, 1e-6) ** 0.25
+        * np.maximum(kRH, 1e-6) ** 0.15
+        * np.maximum(kCO2, 1e-6) ** 0.25
+    )
+    maturity_t = np.cumsum(brix_speed) * dt
+    if len(maturity_t) > 0:
+        maturity_t = maturity_t - maturity_t[0]
+    brix = brix_min + (brix_max - brix_min) / (1.0 + np.exp(-g * (maturity_t - t0_eff)))
     if len(brix) > 0:
         brix[0] = brix_0
 
     firm_score = 1.0 / (1.0 + np.exp(-0.35 * (dureza - p["qual_firm_threshold"])))
     brix_score = np.exp(-((brix - p["qual_brix_target"]) ** 2) / 2.0)
-    quality = 100.0 * (0.65 * firm_score + 0.35 * brix_score)
+    base_quality = 100.0 * (0.65 * firm_score + 0.35 * brix_score)
+    mold, r_mold = mold_load_curve(p, T_profile, RH_profile, t, use_temperature, use_humidity)
+    mold_penalty = p.get("mold_quality_weight", 0.55) * mold if use_mold else 0.0
+    quality = np.clip(base_quality * (1.0 - mold_penalty), 0.0, 100.0)
 
     return {
         "t": t,
         "dureza": dureza,
         "brix": brix,
         "quality": quality,
+        "base_quality": base_quality,
+        "mold": mold,
+        "r_mold": r_mold,
+        "profiles": {
+            "T_C": T_profile,
+            "RH_pct": RH_profile,
+            "E_ppm": E_profile,
+            "CO2_pct": CO2_profile,
+        },
         "k": k,
+        "k_factors": {
+            "kT": kT,
+            "kE": kE,
+            "kRH": kRH,
+            "kCO2": kCO2,
+        },
         "p": p,
         "dureza_0": dureza_0,
         "brix_0": brix_0,
     }
+
+
+def profile_model_label(lang, model):
+    return tr(lang, PROFILE_MODEL_LABEL_KEYS[model])
+
+
+def render_profile_config(lang, key, label, base_value, days, min_value, max_value, step):
+    with st.expander(f"{label} - {tr(lang, 'temporal_profile')}"):
+        model = st.selectbox(
+            tr(lang, "profile_model"),
+            options=list(PROFILE_MODEL_LABEL_KEYS.keys()),
+            format_func=lambda item: profile_model_label(lang, item),
+            key=f"{key}_profile_model",
+        )
+
+        cfg = {"model": model, "x0": float(base_value)}
+
+        if model in {"linear_increase", "linear_decrease"}:
+            cfg["slope"] = st.number_input(
+                tr(lang, "profile_slope"),
+                min_value=0.0,
+                value=0.0,
+                step=step,
+                key=f"{key}_profile_slope",
+            )
+        elif model == "exponential_approach":
+            cfg["x_inf"] = st.number_input(
+                tr(lang, "profile_target"),
+                min_value=float(min_value),
+                max_value=float(max_value),
+                value=float(base_value),
+                step=step,
+                key=f"{key}_profile_target",
+            )
+            cfg["rate"] = st.number_input(
+                tr(lang, "profile_rate"),
+                min_value=0.0,
+                value=1.0,
+                step=0.1,
+                key=f"{key}_profile_rate",
+            )
+        elif model == "sinusoidal":
+            cfg["amplitude"] = st.number_input(
+                tr(lang, "profile_amplitude"),
+                min_value=0.0,
+                value=0.0,
+                step=step,
+                key=f"{key}_profile_amplitude",
+            )
+            cfg["period"] = st.number_input(
+                tr(lang, "profile_period"),
+                min_value=0.1,
+                value=1.0,
+                step=0.1,
+                key=f"{key}_profile_period",
+            )
+            cfg["phase"] = st.number_input(
+                tr(lang, "profile_phase"),
+                value=0.0,
+                step=0.1,
+                key=f"{key}_profile_phase",
+            )
+        elif model == "step":
+            cfg["t_step"] = st.number_input(
+                tr(lang, "profile_step_day"),
+                min_value=0.0,
+                max_value=float(days),
+                value=min(1.0, float(days)),
+                step=0.5,
+                key=f"{key}_profile_step_day",
+            )
+            cfg["x1"] = st.number_input(
+                tr(lang, "profile_step_value"),
+                min_value=float(min_value),
+                max_value=float(max_value),
+                value=float(base_value),
+                step=step,
+                key=f"{key}_profile_step_value",
+            )
+        elif model == "pulse":
+            cfg["t_start"] = st.number_input(
+                tr(lang, "profile_pulse_start"),
+                min_value=0.0,
+                max_value=float(days),
+                value=min(1.0, float(days)),
+                step=0.5,
+                key=f"{key}_profile_pulse_start",
+            )
+            cfg["t_end"] = st.number_input(
+                tr(lang, "profile_pulse_end"),
+                min_value=0.0,
+                max_value=float(days),
+                value=min(2.0, float(days)),
+                step=0.5,
+                key=f"{key}_profile_pulse_end",
+            )
+            cfg["x_pulse"] = st.number_input(
+                tr(lang, "profile_pulse_value"),
+                min_value=float(min_value),
+                max_value=float(max_value),
+                value=float(base_value),
+                step=step,
+                key=f"{key}_profile_pulse_value",
+            )
+
+    return cfg
 
 
 def main():
@@ -532,7 +900,35 @@ def main():
         T_c = st.slider(tr(lang, "temperature"), 0.0, 25.0, 10.0, 0.5)
         E_ppm = st.slider(tr(lang, "ethylene"), 0.0, 10.0, 0.2, 0.1)
         RH_pct = st.slider(tr(lang, "humidity"), 40, 100, 90, 1)
+        CO2_pct = st.slider(tr(lang, "co2"), 0.0, 20.0, 0.04, 0.01)
         days = st.slider(tr(lang, "days"), 5, 180, 40, 5)
+
+        st.subheader(tr(lang, "model_modules"))
+        use_temperature = st.checkbox(tr(lang, "use_temperature"), value=True)
+        use_humidity = st.checkbox(tr(lang, "use_humidity"), value=True)
+        use_ethylene = st.checkbox(tr(lang, "use_ethylene"), value=True)
+        use_co2 = st.checkbox(tr(lang, "use_co2"), value=True)
+        use_mold = st.checkbox(tr(lang, "use_mold"), value=True)
+        advanced_profiles = st.checkbox(tr(lang, "advanced_profiles"), value=False)
+
+        temperature_cfg = None
+        humidity_cfg = None
+        ethylene_cfg = None
+        co2_cfg = None
+
+        if advanced_profiles:
+            temperature_cfg = render_profile_config(
+                lang, "temperature", tr(lang, "temperature"), T_c, days, 0.0, 40.0, 0.5
+            )
+            humidity_cfg = render_profile_config(
+                lang, "humidity", tr(lang, "humidity"), RH_pct, days, 0.0, 100.0, 1.0
+            )
+            ethylene_cfg = render_profile_config(
+                lang, "ethylene", tr(lang, "ethylene"), E_ppm, days, 0.0, 50.0, 0.1
+            )
+            co2_cfg = render_profile_config(
+                lang, "co2", tr(lang, "co2"), CO2_pct, days, 0.0, 20.0, 0.1
+            )
 
         default_dureza = float(p["dureza_0_default"])
         default_brix = float(p["brix_0_default"])
@@ -558,12 +954,32 @@ def main():
         st.write(tr(lang, "brix_range"), f"{p['brix_min']}-{p['brix_max']}")
 
     if st.button(tr(lang, "run_simulation"), use_container_width=True):
-        result = run_simulation(fruit_key, T_c, E_ppm, RH_pct, days, dureza_0, brix_0)
+        result = run_simulation(
+            fruit_key,
+            T_c,
+            E_ppm,
+            RH_pct,
+            CO2_pct,
+            days,
+            dureza_0,
+            brix_0,
+            use_temperature=use_temperature,
+            use_humidity=use_humidity,
+            use_ethylene=use_ethylene,
+            use_co2=use_co2,
+            use_mold=use_mold,
+            temperature_cfg=temperature_cfg,
+            humidity_cfg=humidity_cfg,
+            ethylene_cfg=ethylene_cfg,
+            co2_cfg=co2_cfg,
+        )
 
         t = result["t"]
         dureza = result["dureza"]
         brix = result["brix"]
         quality = result["quality"]
+        mold = result["mold"]
+        profiles = result["profiles"]
         current_fruit_label = fruit_label(lang, fruit_key)
 
         st.subheader(tr(lang, "result_for", fruit=current_fruit_label))
@@ -582,10 +998,30 @@ def main():
         ax.plot(t, brix, label="°Brix")
         ax.set_xlabel(tr(lang, "days"))
         ax.set_ylabel(tr(lang, "value"))
-        ax.set_title(f"{current_fruit_label} | T={T_c:.1f}°C | E={E_ppm:.1f} ppm | RH={RH_pct}%")
+        ax.set_title(
+            f"{current_fruit_label} | T={T_c:.1f}°C | E={E_ppm:.1f} ppm | "
+            f"RH={RH_pct}% | CO2={CO2_pct:.2f}%"
+        )
         ax.legend()
         ax.grid(True, alpha=0.3)
         st.pyplot(fig)
+
+        if advanced_profiles:
+            fig_env, axes = plt.subplots(4, 1, figsize=(10, 7), sharex=True)
+            axes[0].plot(t, profiles["T_C"])
+            axes[0].set_ylabel("T (°C)")
+            axes[1].plot(t, profiles["RH_pct"])
+            axes[1].set_ylabel("RH (%)")
+            axes[2].plot(t, profiles["E_ppm"])
+            axes[2].set_ylabel("E (ppm)")
+            axes[3].plot(t, profiles["CO2_pct"])
+            axes[3].set_ylabel("CO2 (%)")
+            axes[3].set_xlabel(tr(lang, "days"))
+            fig_env.suptitle(tr(lang, "environment_profiles"))
+            for env_ax in axes:
+                env_ax.grid(True, alpha=0.3)
+            fig_env.tight_layout()
+            st.pyplot(fig_env)
 
         fig2, ax2 = plt.subplots(figsize=(10, 4))
         ax2.plot(t, quality)
@@ -595,15 +1031,53 @@ def main():
         ax2.grid(True, alpha=0.3)
         st.pyplot(fig2)
 
+        if use_mold:
+            fig3, ax3 = plt.subplots(figsize=(10, 4))
+            ax3.plot(t, mold)
+            ax3.set_ylabel(tr(lang, "mold_axis"))
+            ax3.set_xlabel(tr(lang, "days"))
+            ax3.set_title(tr(lang, "mold_index"))
+            ax3.grid(True, alpha=0.3)
+            st.pyplot(fig3)
+
         with st.expander(tr(lang, "used_parameters")):
             st.json({
                 tr(lang, "json_fruit"): current_fruit_label,
                 "T_C": T_c,
                 "E_ppm": E_ppm,
                 "RH_pct": RH_pct,
+                "CO2_pct": CO2_pct,
                 tr(lang, "json_days"): days,
                 "dureza_0": dureza_0,
                 "brix_0": brix_0,
+                "use_temperature": use_temperature,
+                "use_humidity": use_humidity,
+                "use_ethylene": use_ethylene,
+                "use_co2": use_co2,
+                "use_mold": use_mold,
+                "advanced_profiles": advanced_profiles,
+                "profile_models": {
+                    "T_C": (temperature_cfg or constant_profile(T_c))["model"],
+                    "RH_pct": (humidity_cfg or constant_profile(RH_pct))["model"],
+                    "E_ppm": (ethylene_cfg or constant_profile(E_ppm))["model"],
+                    "CO2_pct": (co2_cfg or constant_profile(CO2_pct))["model"],
+                },
+                "profile_final_values": {
+                    "T_C": float(profiles["T_C"][-1]),
+                    "RH_pct": float(profiles["RH_pct"][-1]),
+                    "E_ppm": float(profiles["E_ppm"][-1]),
+                    "CO2_pct": float(profiles["CO2_pct"][-1]),
+                },
+                "k_total_mean": float(np.mean(result["k"])),
+                "k_total_final": float(result["k"][-1]),
+                "k_factors_mean": {
+                    "kT": float(np.mean(result["k_factors"]["kT"])),
+                    "kE": float(np.mean(result["k_factors"]["kE"])),
+                    "kRH": float(np.mean(result["k_factors"]["kRH"])),
+                    "kCO2": float(np.mean(result["k_factors"]["kCO2"])),
+                },
+                "mold_rate_mean": float(np.mean(result["r_mold"])),
+                "final_mold": float(mold[-1]),
             })
     else:
         st.info(tr(lang, "empty_state"))
